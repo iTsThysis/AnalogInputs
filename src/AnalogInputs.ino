@@ -6,7 +6,10 @@ uint16_t value;
 void setup() {
   //setting ports
   pinMode(A5, INPUT);
+  pinMode(D2, OUTPUT);
   pinMode(D5, OUTPUT);
+  Serial.begin(9600);
+
 }
 
 
@@ -16,10 +19,11 @@ void loop() {
   //printing value
   Serial.println(value);
   
-  Serial.begin(9600);
   //making the lightbulb blink
   delay(value);
   digitalWrite(D5, HIGH);
+  digitalWrite(D2, LOW);
   delay(value);
   digitalWrite(D5, LOW);
+  digitalWrite(D2, HIGH);
 }
